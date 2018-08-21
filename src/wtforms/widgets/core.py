@@ -161,7 +161,7 @@ class Input(object):
             kwargs["value"] = field._value()
         if "required" not in kwargs and "required" in getattr(field, "flags", []):
             kwargs["required"] = True
-        return Markup("<input %s>" % self.html_params(name=field.name, **kwargs))
+        return Markup("<input %s>" % self.html_params(**kwargs))
 
 
 class TextInput(Input):
