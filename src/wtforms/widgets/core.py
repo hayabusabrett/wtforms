@@ -155,6 +155,8 @@ class Input(object):
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
         kwargs.setdefault("type", self.input_type)
+        if 'name' not in kwargs:
+            kwargs['value'] = field.name
         if "value" not in kwargs:
             kwargs["value"] = field._value()
         if "required" not in kwargs and "required" in getattr(field, "flags", []):
